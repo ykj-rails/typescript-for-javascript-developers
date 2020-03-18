@@ -7,13 +7,15 @@ class Animal {
     return 'I can run'
   }
 }
-
 class Lion extends Animal {
-  constructor(public name: string) {
+  public speed: number
+  constructor(name: string, speed: number) {
     super(name)
+    this.speed = speed
   }
   run(): string {
-    return 'I can run 80km.'
+    //super.run()で親のrunメソッドを呼び出す
+    return `${super.run()} ${this.speed}km/h.`
   }
 }
 
@@ -22,5 +24,5 @@ class Lion extends Animal {
 // let lion = new Lion()
 // console.log(lion.run())
 
-console.log(new Animal('Mickey').run())
-console.log(new Lion('Simba').run())
+console.log(new Animal('Mickey').run()) // I can run
+console.log(new Lion('Simba', 80).run()) // I can run 80km/h.
